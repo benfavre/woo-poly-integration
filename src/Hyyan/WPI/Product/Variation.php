@@ -98,7 +98,10 @@ class Variation
                         break;
                     case 0:
                         // insert
-                        $this->insert(wc_get_product($variation_id), $variation);
+                        $v = wc_get_product($variation_id);
+                        if($v){
+                            $this->insert($v, $variation);
+                        }
                         break;
                     default:
                         //JM2021: duplicate translated variations detected:
